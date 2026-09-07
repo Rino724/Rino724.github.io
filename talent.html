@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Talent | Pigeon Production</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="talent-page">
+<header class="site-header enter-top">
+  <a class="logo" href="index.html">Pigeon<span>Production</span></a>
+  <nav><a href="index.html#talents">TALENTS</a><a href="index.html#news">NEWS</a><a href="index.html#about">ABOUT</a></nav>
+</header>
+<main id="profile"></main>
+<footer>© Pigeon Production</footer>
+<script>
+const talents = {
+  1:{name:"鳩野りの",en:"HATONO RINO",catch:"しばくぞ！",color:"lightbule",
+  birthday:"7月24日",height:"162cm",mama:"未定",papa:"未定",fanname:"未定",hobby:"未定",favorite:"未定",tags:["GAME","TALK","STUDY"],
+  youtube:"https://youtube.com/@hatono_rino",x:"https://x.com/@hatono_rino",twitch:"https://twitch.tv/hatono_rino"},
+  2:{name:"Unknown",en:"Unknown",catch:"Nothing",color:"LUNA",tags:["SING","ASMR","CHAT"]},
+  3:{name:"Unknown",en:"Unknown",catch:"Nothing",color:"MIRAI",tags:["GAME","PROJECT","TALK"]},
+  4:{name:"不審者<br>セイウチ",en:"FUSHINSYA SEIUCHI",catch:"我々は中道ということですね？",color:"Dark",tags:["GAME","DRUG","ENGINEER"]},
+  5:{name:"Unknown",en:"Unknown",catch:"Nothing",color:"KANADE",tags:["GAME","SING","READING"]},
+  6:{name:"Unknown",en:"Unknown",catch:"Nothing",color:"NOA",tags:["CHAT","GAME","COLLAB"]}
+};
+const id = new URLSearchParams(location.search).get("id") || "1";
+const t = talents[id] || talents[1];
+document.title = `${t.name} | Pigeon Production`;
+document.getElementById("profile").innerHTML = `
+<section class="profile-hero">
+  <div class="profile-copy enter-left">
+    <p class="eyebrow">TALENT ${String(id).padStart(2,"0")}</p>
+    <h1>${t.name}</h1><p class="profile-en">${t.en}</p>
+    <p class="catch">${t.catch}</p>
+    <div class="tags">${t.tags.map(x=>`<span>${x}</span>`).join("")}</div>
+    <div class="socials">
+    <a href="${t.youtube}" target="_blank">YouTube</a>
+    <a href="${t.x}" target="_blank">X</a>
+    <a href="${t.twitch}" target="_blank">Twitch</a>
+</div>
+
+  </div>
+  <div class="profile-visual enter-right">
+    <img class="talent-main-image" src="assets/talent${String(id).padStart(2,"0")}.png" alt="${t.name}">
+</div>
+
+</section>
+<section class="profile-info">
+  <div class="section-title">
+    <span>01</span>
+    <h2>PROFILE</h2>
+    <p>プロフィール</p>
+  </div>
+
+
+  <div class="profile-details">
+
+    <div class="profile-item">
+      <span>誕生日</span>
+      <strong>${t.birthday}</strong>
+    </div>
+
+    <div class="profile-item">
+      <span>身長</span>
+      <strong>${t.height}</strong>
+    </div>
+
+    <div class="profile-item">
+      <span>mama</span>
+      <strong>${t.mama}</strong>
+    </div>
+
+    <div class="profile-item">
+      <span>papa</span>
+      <strong>${t.papa}</strong>
+    </div>
+
+    <div class="profile-item">
+      <span>ファンネーム</span>
+      <strong>${t.fanname}</strong>
+    </div>
+
+    <div class="profile-item">
+      <span>趣味</span>
+      <strong>${t.hobby}</strong>
+    </div>
+
+    <div class="profile-item profile-item-wide">
+      <span>好きなもの</span>
+      <strong>${t.favorite}</strong>
+    </div>
+
+  </div>
+</section>
+
+</section>
+<section class="profile-nav">
+  <a href="index.html#talents">← BACK TO TALENTS</a>
+</section>`;
+</script>
+</body>
+</html>
